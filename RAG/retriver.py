@@ -39,7 +39,6 @@ def build_vector_database():
 
     chunks = splitter.split_documents(documents)
 
-    # Embedding model
     # Store in Chroma
     vectorstore = Chroma.from_documents(
         documents=chunks,

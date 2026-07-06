@@ -10,11 +10,11 @@ from dotenv import load_dotenv
 load_dotenv()
 print(os.getenv("OPENAI_API_KEY")[:10])
 
-model=OpenAIEmbeddings(
-    model="openai/gpt-5-nano",
+embeddings = OpenAIEmbeddings(
+    model="text-embedding-3-small",
     base_url="https://api.aicredits.in/v1",
     api_key=os.getenv("OPENAI_API_KEY"),
-    timeout=60
+    timeout=60,
 )
 
 
@@ -40,8 +40,6 @@ def build_vector_database():
     chunks = splitter.split_documents(documents)
 
     # Embedding model
-    embeddings = OpenAIEmbeddings()
-
     # Store in Chroma
     vectorstore = Chroma.from_documents(
         documents=chunks,

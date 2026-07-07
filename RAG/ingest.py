@@ -1,5 +1,5 @@
 from langchain_chroma import Chroma
-from embedding import embeddings
+from chunking import embeddings
 
 def get_vector():
     return Chroma(

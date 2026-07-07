@@ -5,6 +5,7 @@ from langchain_openai import ChatOpenAI
 from langchain.agents import create_agent
 from langchain.messages import HumanMessage,AIMessage
 from tools.tools import file_reader,pdf_loader,mysql_tool
+from model.config import llm
 
 load_dotenv()
 
@@ -15,12 +16,6 @@ connection = mysql.connector.connect(
     database=os.getenv("MYSQL_DATABASE")
 )
 
-model=ChatOpenAI(
-    model="openai/gpt-5-nano",
-    base_url="https://api.aicredits.in/v1",
-    api_key=os.getenv("OPENAI_API_KEY"),
-    timeout=60
-)
 
 tools=[
     file_reader,
@@ -29,7 +24,7 @@ tools=[
     ]
 
 agent=create_agent(
-    model=model,
+    model=llm,
     tools=tools
 )
 

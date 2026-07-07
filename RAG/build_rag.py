@@ -1,3 +1,3 @@
-from retriver import build_vector_database
+from embedding import build_vector_database
 
 build_vector_database()

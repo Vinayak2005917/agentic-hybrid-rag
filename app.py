@@ -3,6 +3,7 @@ import mysql.connector
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain.agents import create_agent
+from langchain.messages import HumanMessage,AIMessage
 from tools.tools import file_reader,pdf_loader,mysql_tool
 
 load_dotenv()

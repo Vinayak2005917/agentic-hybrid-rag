@@ -3,11 +3,10 @@ from langchain_community.document_loaders import (
     TextLoader,
     PyPDFLoader,
 )
-from model.config import embeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_openai import OpenAIEmbeddings
 from langchain_chroma import Chroma
 from dotenv import load_dotenv
+from model.config import embeddings
 load_dotenv()
 
 print(os.getenv("OPENAI_API_KEY")[:10])

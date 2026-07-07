@@ -26,11 +26,15 @@ def build_vector_database():
         TextLoader("../data/sample_data.txt").load()
     )
 
+    documents.extend(
+        PyPDFLoader("../data/sample.pdf").load()
+    )
+
 
     # Split into chunks
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=50,
-        chunk_overlap=10,
+        chunk_size=100,
+        chunk_overlap=50,
     )
 
     chunks = splitter.split_documents(documents)

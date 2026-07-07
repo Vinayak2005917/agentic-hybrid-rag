@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 from  langchain_chroma import Chroma
-from embedding import embeddings
+from chunking import embeddings
 from ingest import get_vector
 vectorstore=get_vector()
 

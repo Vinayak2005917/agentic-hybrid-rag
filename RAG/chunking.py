@@ -12,7 +12,7 @@ load_dotenv()
 print(os.getenv("OPENAI_API_KEY")[:10])
 
 
-
+embeddings=embeddings
 
 def build_vector_database():
     documents = []

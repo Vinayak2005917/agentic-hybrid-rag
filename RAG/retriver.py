@@ -1,8 +1,8 @@
 import os
 from dotenv import load_dotenv
 from  langchain_chroma import Chroma
-from chunking import embeddings
-from ingest import get_vector
+from model.config import embeddings
+from .ingest import get_vector
 vectorstore=get_vector()
 
 retriver=vectorstore.as_retriever(search_kwags={"k":3})

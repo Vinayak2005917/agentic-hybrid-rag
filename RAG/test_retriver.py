@@ -1,4 +1,4 @@
-from retriver import retrive_documents
+from .retriver import retrive_documents
 
 query = input("Ask a question: ")
 

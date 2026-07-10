@@ -6,20 +6,10 @@ from langchain_community.document_loaders import (
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
 from dotenv import load_dotenv
-from langchain_openai import OpenAIEmbeddings
-
 from model.config import embeddings
 load_dotenv()
 
 print(os.getenv("OPENAI_API_KEY")[:10])
-
-
-embeddings=embeddings = OpenAIEmbeddings(
-    model="text-embedding-3-small",
-    base_url="https://api.aicredits.in/v1",
-    api_key=os.getenv("OPENAI_API_KEY"),
-    timeout=60,
-)
 
 
 def build_vector_database():
@@ -27,11 +17,11 @@ def build_vector_database():
 
     # Load text file
     documents.extend(
-        TextLoader("../data/sample_data.txt").load()
+        TextLoader("data/sample_data.txt").load()
     )
 
     documents.extend(
-        PyPDFLoader("../data/sample.pdf").load()
+        PyPDFLoader("data/sample.pdf").load()
     )
 
 

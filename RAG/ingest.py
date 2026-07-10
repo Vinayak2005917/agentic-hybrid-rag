@@ -1,6 +1,5 @@
 from langchain_chroma import Chroma
-from chunking import embeddings
-
+from model.config import embeddings
 def get_vector():
     return Chroma(
     persist_directory="Chroma_db",

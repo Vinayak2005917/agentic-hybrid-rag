@@ -5,7 +5,6 @@ from langchain_openai import ChatOpenAI
 from langchain.agents import create_agent
 from langchain.messages import HumanMessage,AIMessage
 from tools.tools import file_reader,pdf_loader,mysql_tool
-from langchain_openai import 
 from model.config import llm
 
 load_dotenv()

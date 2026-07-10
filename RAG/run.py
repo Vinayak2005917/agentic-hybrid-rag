@@ -1,4 +1,9 @@
+
+from .chunking import build_vector_database
 from .retriver import retrive_documents
+
+build_vector_database()
+
 
 query = input("Ask a question: ")
 

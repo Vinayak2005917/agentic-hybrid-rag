@@ -1,6 +1,7 @@
 
 from .chunking import build_vector_database
 from .retriver import retrive_documents
+from tools.tools import rag_tool
 
 build_vector_database()
 

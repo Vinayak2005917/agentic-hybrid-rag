@@ -1,5 +1,6 @@
 from langchain.tools import tool
 from langchain_community.document_loaders import PyPDFLoader
+from RAG.generator import generate_answer
 from pathlib import Path
 import mysql.connector
 
@@ -42,3 +43,9 @@ def mysql_tool(query:str)->str:
         return str(row)
     except Exception as e:
         return f"Error:{e}"
+    
+
+@tool(description="Use this tool when the user asks questions aboutdocuments stored in the vector database.")
+def rag_tool(question: str) -> str:
+    return generate_answer(question)
+    

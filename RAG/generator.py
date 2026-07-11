@@ -7,7 +7,12 @@ def generate_answer(question:str):
     content="\n\n".join(
         doc.page_content for doc in documents
     )
-    prompt=rag_prompt(
-        "context"
-    )
+
+    prompt=rag_prompt.invoke({ 
+        "context":content,
+        "question":question
+    })
+    response=llm.invoke(prompt)
+    return response.content
+
 

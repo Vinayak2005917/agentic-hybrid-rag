@@ -4,4 +4,7 @@ while True:
     question=input("ASK:")
     if question.lower=="exit":
         break
-    
+    answer=generate_answer(question)
+    print("\n\n\n\n\nhe")
+    print(answer)
+

@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain.agents import create_agent
 from langchain.messages import HumanMessage,AIMessage
-from tools.tools import file_reader,pdf_loader,mysql_tool
+from tools.tools import file_reader,pdf_loader,mysql_tool,rag_tool
 from model.config import llm
 
 load_dotenv()
@@ -20,7 +20,8 @@ connection = mysql.connector.connect(
 tools=[
     file_reader,
     pdf_loader,
-    mysql_tool
+    mysql_tool,
+    rag_tool
     ]
 
 agent=create_agent(

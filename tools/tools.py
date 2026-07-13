@@ -45,7 +45,12 @@ def mysql_tool(query:str)->str:
         return f"Error:{e}"
     
 
-@tool(description="Use this tool when the user asks questions aboutdocuments stored in the vector database.")
+@tool
 def rag_tool(question: str) -> str:
+    """
+    use this tool whenever the user asked something inside ths
+    text file and pdf exapmle:
+    what is the leave,wfh policy 
+    """
     return generate_answer(question)
     

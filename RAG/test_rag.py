@@ -5,6 +5,6 @@ while True:
     if question.lower=="exit":
         break
     answer=generate_answer(question)
-    print("\n\n\n\n\nhe")
+    print("\n_+_+_+_+_+__+_+_+e")
     print(answer)
 

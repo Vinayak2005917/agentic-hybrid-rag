@@ -51,6 +51,10 @@ def rag_tool(question: str) -> str:
     use this tool whenever the user asked something inside ths
     text file and pdf exapmle:
     what is the leave,wfh policy 
+    and first read the documents if content not available there 
+    if u can not find the content then give ur own answer 
+    
     """
+    print("====rag tool used+++")
     return generate_answer(question)
     

@@ -9,3 +9,5 @@ venv/
 .vscode/
 
 chroma_db/
+
+data/

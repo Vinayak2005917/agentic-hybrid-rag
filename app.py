@@ -30,8 +30,8 @@ agent=create_agent(
 )
 
 while True:
-    user_input=input("meee:")
-    if user_input.lower()=="exit":
+    question=input("meee:")
+    if question.lower()=="exit":
         print("boyee boyeee")
         break 
 
@@ -40,7 +40,7 @@ while True:
             "messages": [
                 {
                     "role": "user",
-                    "content": user_input
+                    "content": question
                 }
             ]
         }

@@ -24,6 +24,8 @@ def build_vector_database():
         PyPDFLoader("data/sample.pdf").load()
     )
 
+    print("length of documents",len(documents))
+
 
     # Split into chunks
     splitter = RecursiveCharacterTextSplitter(

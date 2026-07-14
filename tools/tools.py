@@ -48,12 +48,11 @@ def mysql_tool(query:str)->str:
 @tool
 def rag_tool(question: str) -> str:
     """
-    use this tool whenever the user asked something inside ths
-    text file and pdf exapmle:
-    what is the leave,wfh policy 
-    and first read the documents if content not available there 
-    if u can not find the content then give ur own answer 
-    
+    use this tool whenever the user asked first before using any other tool
+    and verify wether the contet is available here or not.If u can not find
+    the required context to answer then use the llm to answer its
+    own,ansmer own if and only if the context cannot be retrived 
+    from here
     """
     print("====rag tool used+++")
     return generate_answer(question)

@@ -52,7 +52,8 @@ def rag_tool(question: str) -> str:
     and verify wether the contet is available here or not.If u can not find
     the required context to answer then use the llm to answer its
     own,ansmer own if and only if the context cannot be retrived 
-    from here
+    from here.
+    
     """
     print("====rag tool used+++")
     return generate_answer(question)

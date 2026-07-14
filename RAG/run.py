@@ -1,18 +1,13 @@
 
-from .chunking import build_vector_database
-from .retriver import retrive_documents
-from tools.tools import rag_tool
-
-build_vector_database()
+from .generator import generate_answer
 
 
-query = input("Ask a question: ")
+while True:
+    question=input("puchoooo,puchoooonahh:")
 
-docs = retrive_documents(query)
-
-print("\nRetrieved Documents:\n")
-
-for i, doc in enumerate(docs, start=1):
-    print(f"------ Document {i} ------")
-    print(doc.page_content)
-    print()
+    if question.lower=="exit":
+        print("abeyy jhaaa bhe")
+        break
+    answer=generate_answer(question)
+    print("THIS IS THE ANSWER U BITCH")
+    print(answer)

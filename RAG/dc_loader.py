@@ -15,7 +15,7 @@ LOADERS = {
     ".txt": TextLoader,
     ".csv": CSVLoader,
     ".docx": Docx2txtLoader,
-    ".md": UnstructuredMarkdownLoader,
+    ".xlsx": UnstructuredMarkdownLoader,
 }
 
 

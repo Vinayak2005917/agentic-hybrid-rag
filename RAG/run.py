@@ -9,5 +9,5 @@ while True:
         print("abeyy jhaaa bhe")
         break
     answer=generate_answer(question)
-    print("THIS IS THE ANSWER U BITCH")
+    print("THIS IS THE ANSWER U BITCH:")
     print(answer)

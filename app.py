@@ -30,7 +30,7 @@ agent=create_agent(
 )
 
 while True:
-    question=input("meee:")
+    question=input("\nmeee:\n")
     if question.lower()=="exit":
         print("boyee boyeee")
         break 

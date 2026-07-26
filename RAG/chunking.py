@@ -1,31 +1,17 @@
 import os
-from langchain_community.document_loaders import (
-    TextLoader,
-    PyPDFLoader,
-)
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
 from dotenv import load_dotenv
 from model.config import embeddings
+from .dc_loader import load_documents
 load_dotenv()
 
 print(os.getenv("OPENAI_API_KEY")[:10])
 
 
 def build_vector_database():
-    documents = []
-
-    # Load text file
-    documents.extend(
-        TextLoader("data/sample_data.txt").load()
-    )
-
-    documents.extend(
-        PyPDFLoader("data/sample.pdf").load()
-    )
-
-    print("length of documents",len(documents))
-
+    documents=load_documents("data")
+    
 
     # Split into chunks
     splitter = RecursiveCharacterTextSplitter(

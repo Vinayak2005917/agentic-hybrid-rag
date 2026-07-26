@@ -19,7 +19,7 @@ LOADERS = {
 }
 
 
-def get_all_files(folder_path: str):
+def get_files(folder_path: str):
     """Returns all files inside the folder."""
 
     folder = Path(folder_path)
@@ -31,7 +31,7 @@ def get_all_files(folder_path: str):
     ]
 
 
-def is_supported(file):
+def check_file(file):
     """Checks whether the file type is supported."""
 
     return file.suffix.lower() in LOADERS
@@ -51,11 +51,11 @@ def load_documents(folder_path: str):
 
     documents = []
 
-    files = get_all_files(folder_path)
+    files = get_files(folder_path)
 
     for file in files:
 
-        if not is_supported(file):
+        if not check_file(file):
             print(f"Skipping: {file.name}")
             continue
 

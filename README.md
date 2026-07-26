@@ -1,4 +1,4 @@
-# 🤖 Agentic RAG System using LangChain
+# Agentic RAG System using LangChain
 
 ## Overview
 
@@ -9,17 +9,12 @@ This project is an **Agentic Retrieval-Augmented Generation (RAG) System** built
 # How the System Works
 
 The first step of the project is document ingestion. The user places all the required documents inside the **data** folder. The system supports multiple file formats such as:
-
-- PDF
-- TXT
-- CSV
-- DOCX
-- Markdown (.md)
+PDF,TXT,CSV,DOCX, Markdown (.md)
 
 Instead of creating a separate loader for every file type, the project follows a modular approach using different helper functions.
 
-- **get_all_files()** – Goes inside the given folder and fetches all the available files.
-- **is_supported()** – Checks whether a particular file type is supported by the system.
+- **get_files()** – Goes inside the given folder and fetches all the available files.
+- **check_files()** – Checks whether a particular file type is supported by the system.
 - **get_loader()** – Selects the appropriate LangChain document loader depending on the file type.
 - **load_documents()** – Reads the contents of all supported files and converts them into LangChain **Document** objects. These document objects temporarily store the extracted text, making it easier for further AI processing.
 
@@ -36,6 +31,38 @@ Each chunk is then converted into an **embedding** using OpenAI Embeddings. Thes
 Finally, all the generated embeddings are stored inside **ChromaDB**, which acts as the vector database for this project.
 
 ---
+
+
+---
+
+# Complete RAG Pipeline
+
+```
+Documents (data/)
+        │
+        ▼
+load_documents()
+(document_loader.py)
+        │
+        ├── get_all_files()
+        ├── is_supported()
+        ├── get_loader()
+        ▼
+LangChain Document Objects
+        │
+        ▼
+chunk_documents()
+(chunking.py)
+        │
+        ▼
+OpenAI Embeddings
+(config.py)
+        │
+        ▼
+ChromaDB
+(Vector Database)
+
+```
 
 # Retrieval-Augmented Generation (RAG)
 
@@ -120,6 +147,21 @@ If the question is unrelated to the indexed documents or database, the language 
 
 ---
 
+```
+User Question
+        │
+        ▼
+app.py
+        │
+        ▼
+LangChain Agent
+        │
+ ┌──────┴─────────┐
+ ▼                ▼
+rag_tool()   mysql_tool()
+        
+```
+
 # Technologies Used
 
 - Python
@@ -127,35 +169,6 @@ If the question is unrelated to the indexed documents or database, the language 
 - OpenAI
 - ChromaDB
 - MySQL
-- Pydantic
 - python-dotenv
 
----
 
-# Current Features
-
-- Multi-format document loading
-- Automatic document chunking
-- OpenAI Embeddings
-- ChromaDB Vector Database
-- Semantic Search
-- Retrieval-Augmented Generation (RAG)
-- LangChain Tool Calling
-- MySQL Query Tool
-- Modular Project Structure
-
----
-
-# Future Improvements
-
-The current version implements a standard Agentic RAG system. Future improvements planned for this project include:
-
-- Hybrid RAG (BM25 + Vector Search)
-- Self-RAG
-- Conversation Memory
-- Long-term Memory
-- Query Rewriting
-- Hallucination Detection
-- Answer Grading
-- Source Citation
-- Multi-Agent Architecture
